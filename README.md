@@ -11,7 +11,28 @@ code evidence. There is no local MCP executable or bundled credential.
 
 ## Install and connect
 
-You need Gemini CLI and a Graphify account with access to an indexed repository.
+You need working Gemini CLI model access and a Graphify account with access to an
+indexed repository. These are two separate authentication steps.
+
+**Check Gemini account eligibility first.** Google retired consumer Google sign-in
+for Gemini CLI on June 18, 2026, including free individual accounts and Google AI
+Pro/Ultra. The error "This client is no longer supported for Gemini Code Assist
+for individuals" concerns Google's model access. Reinstalling Graphify or retrying
+Graphify OAuth will not resolve it. See Google's
+[consumer account notice](https://developers.google.com/gemini-code-assist/docs/deprecations/code-assist-individuals).
+
+Google documents paid Gemini API keys as a continuing Gemini CLI access route;
+choose **Use Gemini API Key** in Gemini CLI if you have eligible API access.
+Model usage and billing are separate from Graphify. Existing Code Assist
+Standard/Enterprise subscriptions follow Google's
+[separate retirement schedule](https://docs.cloud.google.com/gemini/docs/codeassist/sunset).
+For consumer Google sign-in, Google directs users to
+[Antigravity CLI](https://antigravity.google/docs/cli/gcli-migration/).
+This package's installation checks cover Gemini CLI; Antigravity migration has
+not been validated for this package. See Google's
+[transition announcement](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/).
+
+Confirm Gemini CLI can respond to a normal prompt before connecting Graphify.
 Sign in at [app.graphify.com](https://app.graphify.com), connect a repository you
 are authorized to use, and wait for indexing to complete.
 
@@ -85,6 +106,22 @@ Restart Gemini CLI after changing your installed extensions.
 
 ## Troubleshooting
 
+- **Google says this client is no longer supported:** review the Gemini account
+  eligibility notice above. Resolve Gemini model authentication first, then
+  authenticate Graphify separately with `/mcp auth graphify`.
+- **Browser says localhost refused to connect:** the browser could not reach
+  Gemini's local OAuth callback listener. A callback URL is specific to one
+  active login attempt. Keep Gemini CLI running, start a fresh
+  `/mcp auth graphify`, and complete sign-in in the browser on the same machine.
+  Do not reload an old callback tab or reuse its URL. Gemini CLI 0.63.0's
+  [callback implementation](https://github.com/google-gemini/gemini-cli/blob/v0.63.0/packages/core/src/utils/oauth-flow.ts)
+  closes the listener after five minutes. If a fresh attempt still fails in
+  native Windows Command Prompt, capture the terminal error at that moment and
+  check whether the current callback port is listening. For WSL, containers, or
+  remote sessions, confirm the browser can reach the CLI's callback environment.
+  Redact authorization codes, state values, tokens, and full callback URLs from
+  shared logs. This browser error alone does not establish an issuer or token
+  exchange failure.
 - **Unauthorized or expired login:** run `/mcp auth graphify` and complete the
   browser flow. Do not commit or paste access tokens.
 - **No repositories or empty results:** check workspace access and completed
