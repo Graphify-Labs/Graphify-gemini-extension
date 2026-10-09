@@ -18,7 +18,7 @@ are authorized to use, and wait for indexing to complete.
 Install the extension from your terminal:
 
 ```sh
-gemini extensions install https://github.com/Graphify-Labs/graphify-gemini-extension
+gemini extensions install https://github.com/Graphify-Labs/Graphify-gemini-extension
 ```
 
 Review the extension details and approve installation when Gemini CLI prompts.
@@ -114,7 +114,7 @@ runs daily and is separate from direct installation.
 ## Support
 
 - [Graphify website](https://graphify.com) · [Documentation](https://docs.graphify.com)
-- [Report an extension issue](https://github.com/Graphify-Labs/graphify-gemini-extension/issues)
+- [Report an extension issue](https://github.com/Graphify-Labs/Graphify-gemini-extension/issues)
 - [Contact Graphify](https://graphify.com/contact) · [founders@graphify.com](mailto:founders@graphify.com)
 
 MIT licensed. See [LICENSE](LICENSE).
