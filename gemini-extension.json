@@ -4,7 +4,7 @@
   "description": "Search indexed code, trace dependencies, assess change impact, and retrieve repository memory with Graphify MCP.",
   "mcpServers": {
     "graphify": {
-      "httpUrl": "https://api.graphify.com/mcp"
+      "url": "https://api.graphify.com/mcp"
     }
   },
   "contextFileName": "GEMINI.md"
