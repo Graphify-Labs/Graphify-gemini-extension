@@ -1,7 +1,7 @@
 {
   "name": "graphify",
-  "version": "1.0.0",
-  "description": "Search indexed code, trace dependencies, assess change impact, and retrieve repository memory with Graphify MCP.",
+  "version": "1.0.1",
+  "description": "Shared context for your codebase. Query a live code graph of callers, dependencies, change impact and tests, cited to file:line. OAuth, free to start at graphify.com.",
   "mcpServers": {
     "graphify": {
       "url": "https://api.graphify.com/mcp"
