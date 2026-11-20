@@ -1,10 +1,10 @@
 {
   "name": "graphify",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Shared context for your codebase. Query a live code graph of callers, dependencies, change impact and tests, cited to file:line. OAuth, free to start at graphify.com.",
   "mcpServers": {
     "graphify": {
-      "url": "https://api.graphify.com/mcp"
+      "httpUrl": "https://api.graphify.com/mcp"
     }
   },
   "contextFileName": "GEMINI.md"
